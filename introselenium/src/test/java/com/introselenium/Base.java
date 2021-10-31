@@ -1,4 +1,4 @@
-//package aca.
+package com.introselenium;
 
 import java.time.Duration;
 import java.util.ArrayList;
@@ -14,21 +14,24 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
+
 public class Base {
 
 	protected WebDriver driver;
-	
+		
 	public Base(WebDriver driver) {
-		this.driver = driver;
-	}
-	
+		
+    }
+
 	public WebDriver chromeDriverConnection() {
-		System.setProperty("webdriver.chrome.driver", "./src/test/resources/drivers/chromedriver");
+		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		return driver;
 	}
-	
-	public WebElement findElement(By locator) {
+
+
+    public WebElement findElement(By locator) {
 		return driver.findElement(locator);
 	}
 	
@@ -90,4 +93,3 @@ public class Base {
 		driver.get(url);	
 	}
 }
-	

@@ -1,33 +1,30 @@
-//Tu package aqui.
-
-import java.util.ArrayList;
+package com.introselenium;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-public class GooglePage_Test {
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+public class Google_Test {
 	
-	private WebDriver driver;
-	GoogleHomePage googlepage;
+	public WebDriver driver;
+	Google_page googlepage;
 	
 	@BeforeTest
 	public void setUp() throws Exception {
-		googlepage = new GoogleHomePage(driver);
+		googlepage = new Google_page(driver);
 		driver = googlepage.chromeDriverConnection();
 		driver.manage().window().maximize();
 		googlepage.visit("https://www.google.com");
-		
-		
+			
 	}
 
 	@Test
 	public void test() throws InterruptedException {
 		googlepage.SearchInGoogle();
-
-	
-		
 	}
 	
 
@@ -36,5 +33,4 @@ public class GooglePage_Test {
 		driver.quit();
 	}	
 	
-
 }
