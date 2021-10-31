@@ -45,6 +45,11 @@ public class Base {
 	public String getText(By locator) {
 		return driver.findElement(locator).getText();	
 	}
+
+
+	public String getAttribute(By locator, String name) {
+		return driver.findElement(locator).getAttribute(name);
+	}
 	
 	public void type(String inputText, By locator) {
 		driver.findElement(locator).sendKeys(inputText);
